@@ -1,0 +1,45 @@
+<html>
+    <head>
+      <title>Event website</title> 
+      <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <nav>
+            
+            <a href="index.php">HOME</a>  
+            <a href="about.html">ABOUT</a>
+            <a href="contactus.html">CONTACT US</a>
+            <a href="signup.html">Sign up</a>
+            <a href="login.html"> LOGIN</a>
+            <a href="eventpage.php">EVENT PAGE</a>
+            <a href="booking.html">BOOKING</a>
+            <a href="createevent.html">CREATE EVENT</a>
+         <a href="bookvenue.html">BOOK VENUE</a>
+            
+        </nav>
+        <div class="form">
+            <table>
+            <form action="login.php" method="post">
+                <h2>Login</h2>
+                <?php if(issset(&-GET['error'])){?>
+                    <p class="error"><?php echo $_GET['error'] ;?></p>
+
+                <?php } ?>
+                <tr><td><label for="username">FullName:</label>
+                <input type="text" id="FullName" name="FullName" required><br></td></tr>
+                <tr><td><label for="username">Username:</label>
+             <input type="text" id="username" name="username" required><br></td></tr>
+             <tr><td> <pre></pre><label for="email">active email:</label>
+                <input type="text" id="email" name="email" required><br></td></tr>
+                <tr><td></td><label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br></td></tr>
+                <tr><td>  <button type="submit">Login</button></td></tr>
+            </form>
+        </table>
+            <div class="info">
+
+            </div>
+
+        </div>
+    </body>
+</html>

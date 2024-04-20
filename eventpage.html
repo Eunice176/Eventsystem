@@ -1,0 +1,794 @@
+<html>
+    <head>
+      <title>Event website</title>  
+      <link rel="stylesheet" href="eventpage.css">
+      <link rel="stylesheet" type="text/css"href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+     <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+     <style>
+      .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f2f2f2;
+      padding: 10px;
+    }
+    .icon-cart {
+      display: flex;
+      align-items: center;
+    }
+    #icon-count {
+      margin-right: 5px;
+    }
+    #icon-count {
+      margin-right: 5px;
+    }
+
+    .cart {
+      display: none; /* Initially hide the cart */
+      width: 250px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      text-align: center;
+      border: 1px solid black;
+      overflow-y: scroll;
+      height: 300px;
+      margin-top: 20px;
+      font:bold;
+      
+    }
+
+    .cart.active {
+      display: block; /* Show the cart when it has the 'active' class */
+    }
+.cart{
+      width: 250px;
+        float: right;
+      text-align: center;
+      border: 1px solid black;
+      overflow-y: scroll;
+      height: 300px; /* Adjusted height for demonstration */
+      margin-top: 20px; /* Added margin-top for spacing */
+    }
+    .cart-item {
+      margin-bottom: 10px;
+    }
+    .cartimg img{
+      width: 200px;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .stars {
+      color: #ffd700;
+    }
+    /* 
+    */
+    </style>
+    
+    </head>
+    <body class="">
+        <nav>
+          <a href="index.php">HOME</a>  
+            <a href="about.html">ABOUT</a>
+            <a href="contactus.html">CONTACT US</a>
+           <!-- <a href="signup.php">Sign up</a>
+            <a href="login.html"> LOGIN</a>-->
+            <a href="eventpage.php">EVENT PAGE</a>
+            <a href="createevent.php">CREATE EVENT</a>
+            <a href="logout.php">LOGOUT</a>
+        
+    </nav>
+           <div class="header">
+          <div class="title"style="margin-left:40px;">PRODUCT LIST</div>
+            <div class="icon-cart">
+            <i class="fa-solid fa-cart-shopping"id="icon-count"></i>
+            <span>0</span>
+            
+            </div>
+          </div>
+    
+           <div class="grid-container">
+            <div class="grid-item">
+              <div class="card">
+                <img src="food1.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+              </div>
+              <!--<img src="food1.jpg"/>
+              <div class="price"><b>200/=</b></div>
+              <button>Add to cart</button>
+            </div>-->
+            <div class="grid-item">
+               <div class="card">
+                  <img src="food2.jpg" class="card-img-top" alt="Food 1">
+                  <div class="card-body">
+                    <h5 class="card-title">foodevent</h5>
+                    <div class="card-text"><b>Price: 200/=</b></div>
+                    <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                      <div class="container">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                  </div>
+                </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="food3.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="food4.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+            <div class="card">
+                  <img src="food 5.jpg" class="card-img-top" alt="Food 1">
+                  <div class="card-body">
+                    <h5 class="card-title">foodevent</h5>
+                    <div class="card-text"><b>Price: 200/=</b></div>
+                    <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                      <div class="container">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                  </div>
+                </div>
+            </div>
+            <div class="grid-item">
+            <div class="card">
+                  <img src="food6.jpg" class="card-img-top" alt="Food 1">
+                  <div class="card-body">
+                    <h5 class="card-title">foodevent</h5>
+                    <div class="card-text"><b>Price: 200/=</b></div>
+                    <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                      <div class="container">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                  </div>
+                </div>
+            </div>
+           </div> 
+           <div class="grid-container">
+            <div class="grid-item">
+            <div class="card">
+                  <img src="music1.jpg" class="card-img-top" alt="Food 1">
+                  <div class="card-body">
+                    <h5 class="card-title">foodevent</h5>
+                    <div class="card-text"><b>Price: 200/=</b></div>
+                    <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                      <div class="container">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                  </div>
+                </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="music2.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="music3.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+              
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="music4.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="music5.png" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div></div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="music6.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+           </div> 
+           <div class="grid-container">
+            <div class="grid-item">
+              <div class="card">
+                <img src="hakathon.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>        
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="ed2.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+             
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="ed3.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="grid-item">
+              <div class="card">
+                <img src="ed1.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="ed5.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="ed6.png" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+           </div>  
+           <div class="grid-container">
+            <div class="grid-item">
+              <div class="card">
+                <img src="bs1.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="bs2.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="bs3.png" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+              
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="bs4.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="bs5.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="food4.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+           </div>  
+           <div class="grid-container">
+            <div class="grid-item">
+              <div class="card">
+                <img src="talent1.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+             
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="talent2.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="talent3.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="talent4.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+               </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="talent5.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+               </div>
+            <div class="grid-item">
+              <div class="card">
+                <img src="talent6.jpg" class="card-img-top" alt="Food 1">
+                <div class="card-body">
+                  <h5 class="card-title">foodevent</h5>
+                  <div class="card-text"><b>Price: 200/=</b></div>
+                  <div class="stars" id="stars1" onclick="rateMeal('stars1')">
+                    <div class="container">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary" onclick="addcart('event', 200)">Add to cart</button>
+                </div>
+              </div>
+            </div>
+           </div> 
+           <div class="col">
+            <div class="cart" id="cart" >
+              <div class="title">
+                Cart
+              </div>
+              <hr>
+              <div id="cartItems"></div>
+              <b><div>Total: <span id="total">0</span></div></b>
+              <button id="payButton" onclick="pay()">Pay Now</button>
+ 
+            </div>
+          </div>
+            <!--<div class="cartTab">
+           <h1>Shopping Cart</h1>
+           <div class="listcart">
+            <div class="grid-item">
+              <img src="talent6.jpg"/>
+              <div class="price"><b>200/=</b></div>
+            <div class="quantity">
+              <span class="minus"></span>
+              <span>1</span>
+              <span class="plus"></span>
+              
+            </div>
+            </div>
+           </div>
+         <div class="btn">
+            <button class="close">Close</button>
+            <button class="checkout">checkout</button>
+           </div>
+           </div>  --> 
+          
+           
+       
+
+<script>
+  var items = {}; // Object to store item names and prices
+  var ratings = {}; // Object to store item ratings
+  
+  
+  function addcart(itemName, itemPrice) {
+    if (!items[itemName]) {
+      items[itemName] = itemPrice; // Store item price if it doesn't exist
+    } else {
+      items[itemName] += itemPrice; // Add item price to existing item if it exists
+    }
+
+    // Calculate total price
+    var total = 0;
+    for (var key in items) {
+      total += items[key];
+    }
+
+    // Update total price display
+    document.getElementById('total').innerText = total;
+
+    // Add item to cart display
+    var cartItems = document.getElementById('cartItems');
+    var newItem = document.createElement('div');
+    newItem.classList.add('cart-item');
+    newItem.innerText = itemName + ': ' + itemPrice + '/='; // Display item name and price
+
+    // Add delete button
+    var deleteBtn = document.createElement('button');
+    deleteBtn.innerText = 'Delete';
+    deleteBtn.classList.add('btn', 'btn-danger', 'btn-sm', 'ml-2');
+    deleteBtn.onclick = function () {
+      delete items[itemName]; // Remove item from items object
+      delete ratings[itemName]; // Remove rating from ratings object
+      cartItems.removeChild(newItem); // Remove item from cart display
+      updateTotal(); // Recalculate total price
+    };
+    newItem.appendChild(deleteBtn);
+
+    cartItems.appendChild(newItem);
+
+    // Show the cart when an item is added
+    document.getElementById('cart').classList.add('active');
+  }
+
+  function updateTotal() {
+    var total = 0;
+    for (var key in items) {
+      total += items[key];
+    }
+    document.getElementById('total').innerText = total;
+  }
+
+  function rateMeal(starsId) {
+    var rating = starsId.charAt(starsId.length - 1);
+    var itemName = starsId.slice(0, -1);
+    ratings[itemName] = rating;
+    console.log(ratings);
+  }
+
+  function pay() {
+  // Get the total amount from the cart
+  var total = 0;
+  for (var key in items) {
+    total += items[key];
+  }
+
+  // Redirect to the payment confirmation page with the total amount as a query parameter
+  window.location.href = 'payment_confirmation.html?total=' + total;
+}
+
+       </script>     
+
+    </body>
+</html>

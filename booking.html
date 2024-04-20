@@ -1,0 +1,43 @@
+<html>
+    <head>
+      <title>Event website</title>  
+      <link rel="stylesheet" href="booking.css">
+    </head>
+    <body>
+        
+        <nav>
+            <a href="index.html">HOME</a>  
+              <a href="about.html">ABOUT</a>
+              <a href="contactus.html">CONTACT US</a>
+              <a href="signup.html">Sign up</a>
+              <a href="login.html"> LOGIN</a>
+              <a href="eventpage.php">EVENT PAGE</a>
+              <a href="booking.html">BOOKING</a>
+              <a href="createevent.html">CREATE EVENT</a>
+              <a href="bookvenue.html">BOOK VENUE</a>    
+      </nav>  
+        
+          <div class="payment-container">
+            <form id="payment-form" action="booking.php" method="post">
+              <h1>Payment Page</h1>
+              <form id="payment-form">
+                  <label for="card-element">
+                      Credit or Debit Card
+                  </label>
+                  <div id="card-element">
+                      <!-- A Stripe Element will be inserted here. -->
+                  </div>
+      
+                  <!-- Used to display form errors. -->
+                  <div id="card-errors" role="alert"></div>
+      
+                  <button type="submit">Submit Payment</button>
+              </form>
+          </div>
+      
+          <script src="https://js.stripe.com/v3/"></script>
+          <script src="booking.js"></script>
+     
+      
+    </body>
+</html>

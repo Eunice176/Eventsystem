@@ -1,0 +1,18 @@
+{
+    "id":1,
+    "name":"color fest",
+    "price": 200,
+    "image":"talent3.png"
+}
+{
+    "id":2,
+    "name":"hacathon",
+    "price": 200,
+    "image":"hacathon.jpg"
+}
+{
+    "id":3,
+    "name":"music",
+    "price": 200,
+    "image":"music5.png"
+}

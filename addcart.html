@@ -1,0 +1,64 @@
+<html>
+<head>
+<style>
+    .cart{
+        width:250px;
+        float:right;
+        text-align: center;
+        border: 1px solid black;
+        overflow-y: scroll;
+        height: 100%;
+        
+    }
+    .cartimg img{
+        width: 200px;
+
+    }
+</style>
+</head>
+<body>
+    <div class="grid-item" id="item1">
+        <img src="food1.jpg"/>
+        <div class="title">event</div>
+        <div class="price"><b>200/=</b></div>
+        <button onclick="addcart('item1')">Add to cart</button>
+      </div>
+    <div class="cart" id="cart">
+        <div class="title">
+         Cart </div></hr>
+  <div id="title"></div>
+    </div>
+    <script>
+        function addcart(item){
+                addItem +=1;
+            var selectedItem = document.createElement('div');
+            selectedItem.classList.add('cartimg');
+            selectedItem.setAttribute('id',addItemId);
+            var img= document.createElement('img');
+            img.setAttribute('src',item.children[0].currentSrc);
+            var title= document.createElement('div');
+            title.innerText = item.children[1].innerText;
+            var label =document.createElement('div');
+            label.innerText=item.children[2].children[0].innerText;
+            var select =document.createElement('span');
+            select.innerText =item.children[2].children[1].value;
+            label.append(select);
+            var delBtn = document.createElement('button');
+            delBtn.innerText='delete';
+            delBtn.setAttribute('onclick','del('+addItemId+')');
+            var cartItems=document.getElementById('title');
+            selectedItem.append(img);
+            selectedItem.append(title);
+            selectedItem.append(label);
+            selectedItem.append(delBtn);
+
+            cartItems.append(selectedItem);
+
+
+        }
+        function del(item){
+            document.getElementById(item).remove();
+        }
+    </script>
+</body>
+</html>
